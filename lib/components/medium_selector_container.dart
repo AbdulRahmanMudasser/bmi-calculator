@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/controllers/bmi_controller.dart';
 import 'package:flutter/material.dart';
 
 import 'increment_decrement_button.dart';
@@ -6,9 +7,17 @@ class MediumSelectorContainer extends StatelessWidget {
   const MediumSelectorContainer({
     super.key,
     required this.forWhat,
+    required this.value,
+    required this.bmiController,
+    required this.incrementMethod,
+    required this.decrementMethod,
   });
 
   final String forWhat;
+  final int value;
+  final BMIController bmiController;
+  final GestureTapCallback incrementMethod;
+  final GestureTapCallback decrementMethod;
 
   @override
   Widget build(BuildContext context) {
@@ -33,9 +42,9 @@ class MediumSelectorContainer extends StatelessWidget {
           const SizedBox(
             height: 15,
           ),
-          const Text(
-            "70",
-            style: TextStyle(
+          Text(
+            value.toString(),
+            style: const TextStyle(
               fontSize: 64,
               fontFamily: 'Poppins',
               fontWeight: FontWeight.w600,
@@ -49,11 +58,11 @@ class MediumSelectorContainer extends StatelessWidget {
             children: [
               IncrementDecrementButton(
                 icon: Icons.remove,
-                onTap: () {},
+                onTap: decrementMethod,
               ),
               IncrementDecrementButton(
                 icon: Icons.add,
-                onTap: () {},
+                onTap: incrementMethod,
               ),
             ],
           ),
