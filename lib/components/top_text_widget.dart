@@ -15,7 +15,7 @@ class TopTextWidget extends StatelessWidget {
           "Welcome 😊",
           style: TextStyle(
             fontFamily: defaultFontFamily,
-            fontSize: 17,
+            fontSize: 15,
             fontWeight: FontWeight.w400,
           ),
         ),
@@ -25,7 +25,7 @@ class TopTextWidget extends StatelessWidget {
           "BMI Calculator",
           style: TextStyle(
             fontFamily: defaultFontFamily,
-            fontSize: 26,
+            fontSize: 25,
             fontWeight: FontWeight.w600,
           ),
         ),

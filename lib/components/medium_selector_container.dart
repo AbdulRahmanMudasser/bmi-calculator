@@ -22,8 +22,8 @@ class MediumSelectorContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 240,
-      padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 25),
+      height: 220,
+      padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.primaryContainer,
         borderRadius: BorderRadius.circular(15),
@@ -33,7 +33,7 @@ class MediumSelectorContainer extends StatelessWidget {
           Text(
             forWhat,
             style: TextStyle(
-              fontSize: 17,
+              fontSize: 15,
               fontFamily: 'Poppins',
               fontWeight: FontWeight.w500,
               color: Theme.of(context).colorScheme.onSecondaryContainer,
@@ -45,13 +45,13 @@ class MediumSelectorContainer extends StatelessWidget {
           Text(
             value.toString(),
             style: const TextStyle(
-              fontSize: 64,
+              fontSize: 60,
               fontFamily: 'Poppins',
               fontWeight: FontWeight.w600,
             ),
           ),
           const SizedBox(
-            height: 19,
+            height: 17,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

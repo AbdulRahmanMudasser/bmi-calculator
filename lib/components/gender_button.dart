@@ -28,7 +28,7 @@ class GenderButton extends StatelessWidget {
       onTap: onTap,
       child: Obx(
         () => Container(
-          padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+          padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 15),
           decoration: BoxDecoration(
             color: bmiController.gender.value == genderText
                 ? Theme.of(context).colorScheme.primary
@@ -43,6 +43,7 @@ class GenderButton extends StatelessWidget {
                 color: bmiController.gender.value == genderText
                     ? Theme.of(context).colorScheme.primaryContainer
                     : Theme.of(context).colorScheme.primary,
+                size: 20,
               ),
               Text(
                 genderText,
@@ -52,7 +53,7 @@ class GenderButton extends StatelessWidget {
                       : Theme.of(context).colorScheme.primary,
                   fontFamily: 'Poppins',
                   fontWeight: FontWeight.w500,
-                  fontSize: 17,
+                  fontSize: 15,
                 ),
               ),
             ],

@@ -38,6 +38,7 @@ dependencies:
 
   get: ^4.6.6
   syncfusion_flutter_sliders: ^24.2.9
+  percent_indicator: ^4.2.3
 
 dev_dependencies:
   flutter_test:

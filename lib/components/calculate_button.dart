@@ -15,7 +15,7 @@ class CalculateButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
         width: double.maxFinite,
         alignment: Alignment.center,
         decoration: BoxDecoration(

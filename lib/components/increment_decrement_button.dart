@@ -15,7 +15,7 @@ class IncrementDecrementButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        padding: const EdgeInsets.all(13),
+        padding: const EdgeInsets.all(11),
         decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.primary,
           borderRadius: BorderRadius.circular(15),

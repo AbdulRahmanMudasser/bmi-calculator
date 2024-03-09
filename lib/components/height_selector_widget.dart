@@ -18,7 +18,7 @@ class HeightSelectorWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 500,
+      height: 460,
       // width: 150,
       padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 25),
       decoration: BoxDecoration(
@@ -30,7 +30,7 @@ class HeightSelectorWidget extends StatelessWidget {
           Text(
             "Height (cm)",
             style: TextStyle(
-              fontSize: 17,
+              fontSize: 15,
               fontFamily: 'Poppins',
               fontWeight: FontWeight.w500,
               color: Theme.of(context).colorScheme.onSecondaryContainer,
@@ -45,7 +45,7 @@ class HeightSelectorWidget extends StatelessWidget {
                 min: 100,
                 max: 250,
                 value: bmiController.height.value,
-                interval: 15,
+                interval: 25,
                 showTicks: true,
                 showLabels: true,
                 enableTooltip: true,
@@ -56,6 +56,7 @@ class HeightSelectorWidget extends StatelessWidget {
 
                   // debugPrint(value.toString());
                 },
+                // tooltipPosition: SliderTooltipPosition.left,
               ),
             ),
           ),

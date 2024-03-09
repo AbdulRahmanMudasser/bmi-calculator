@@ -23,93 +23,95 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // to change theme
-              // ElevatedButton(
-              //   onPressed: () {
-              //     appThemesController.changeTheme();
-              //   },
-              //   child: const Text("Change Theme"),
-              // ),
-
-              // change theme widget
-              ChangeTheme(
-                appThemesController: appThemesController,
-              ),
-
-              const SizedBox(
-                height: 25,
-              ),
-
-              const TopTextWidget(),
-
-              const SizedBox(
-                height: 35,
-              ),
-
-              SelectGenderWidget(
-                bmiController: bmiController,
-                // appThemesController: appThemesController,
-              ),
-
-              const SizedBox(
-                height: 40,
-              ),
-
-              Row(
-                children: [
-                  Expanded(
-                    child: HeightSelectorWidget(
-                      bmiController: bmiController,
-                      // height: bmiController.height.value,
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 20,
-                  ),
-                  Expanded(
-                    child: Obx(
-                      () => Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          MediumSelectorContainer(
-                            forWhat: "Weight (kg)",
-                            value: bmiController.weight.value,
-                            bmiController: bmiController,
-                            incrementMethod: () => bmiController.incrementWeight(),
-                            decrementMethod: () => bmiController.decrementWeight(),
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          MediumSelectorContainer(
-                            forWhat: "Age",
-                            value: bmiController.age.value,
-                            bmiController: bmiController,
-                            incrementMethod: () => bmiController.incrementAge(),
-                            decrementMethod: () => bmiController.decrementAge(),
-                          ),
-                        ],
+          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // to change theme
+                // ElevatedButton(
+                //   onPressed: () {
+                //     appThemesController.changeTheme();
+                //   },
+                //   child: const Text("Change Theme"),
+                // ),
+            
+                // change theme widget
+                ChangeTheme(
+                  appThemesController: appThemesController,
+                ),
+            
+                const SizedBox(
+                  height: 25,
+                ),
+            
+                const TopTextWidget(),
+            
+                const SizedBox(
+                  height: 30,
+                ),
+            
+                SelectGenderWidget(
+                  bmiController: bmiController,
+                  // appThemesController: appThemesController,
+                ),
+            
+                const SizedBox(
+                  height: 30,
+                ),
+            
+                Row(
+                  children: [
+                    Expanded(
+                      child: HeightSelectorWidget(
+                        bmiController: bmiController,
+                        // height: bmiController.height.value,
                       ),
                     ),
-                  ),
-                ],
-              ),
-
-              const SizedBox(
-                height: 45,
-              ),
-
-              CalculateButton(
-                text: "Let's Go",
-                onTap: () {
-                  Get.to(const ResultPage());
-                },
-              ),
-            ],
+                    const SizedBox(
+                      width: 15,
+                    ),
+                    Expanded(
+                      child: Obx(
+                        () => Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            MediumSelectorContainer(
+                              forWhat: "Weight (kg)",
+                              value: bmiController.weight.value,
+                              bmiController: bmiController,
+                              incrementMethod: () => bmiController.incrementWeight(),
+                              decrementMethod: () => bmiController.decrementWeight(),
+                            ),
+                            const SizedBox(
+                              height: 20,
+                            ),
+                            MediumSelectorContainer(
+                              forWhat: "Age",
+                              value: bmiController.age.value,
+                              bmiController: bmiController,
+                              incrementMethod: () => bmiController.incrementAge(),
+                              decrementMethod: () => bmiController.decrementAge(),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+            
+                const SizedBox(
+                  height: 40,
+                ),
+            
+                CalculateButton(
+                  text: "Let's Go",
+                  onTap: () {
+                    Get.to(() => const ResultPage());
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),

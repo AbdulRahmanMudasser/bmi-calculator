@@ -15,7 +15,7 @@ class ChangeTheme extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
-          // height: 45,
+          height: 40,
           padding: const EdgeInsets.symmetric(horizontal: 10),
           decoration: BoxDecoration(
             color: Theme.of(context).colorScheme.primaryContainer,
@@ -38,7 +38,7 @@ class ChangeTheme extends StatelessWidget {
                 ),
               ),
               const SizedBox(
-                width: 20,
+                width: 15,
               ),
               IconButton(
                 onPressed: () => appThemesController.changeTheme(),
