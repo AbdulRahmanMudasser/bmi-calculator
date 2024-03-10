@@ -1,4 +1,6 @@
+import 'package:bmi_calculator/controllers/app_themes_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class CalculateButton extends StatelessWidget {
   const CalculateButton({
@@ -12,6 +14,8 @@ class CalculateButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AppThemesController appThemesController = Get.find();
+
     return GestureDetector(
       onTap: onTap,
       child: Container(
@@ -25,7 +29,9 @@ class CalculateButton extends StatelessWidget {
         child: Text(
           text,
           style: TextStyle(
-            color: Theme.of(context).colorScheme.primaryContainer,
+            color: appThemesController.isDark.value
+                ? Theme.of(context).colorScheme.onPrimaryContainer
+                : Theme.of(context).colorScheme.primaryContainer,
             fontFamily: 'Poppins',
             fontWeight: FontWeight.w500,
             fontSize: 17,

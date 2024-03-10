@@ -1,4 +1,5 @@
 import 'package:bmi_calculator/components/top_text_widget.dart';
+import 'package:bmi_calculator/config/app_colors.dart';
 import 'package:bmi_calculator/controllers/app_themes_controller.dart';
 import 'package:bmi_calculator/controllers/bmi_controller.dart';
 import 'package:bmi_calculator/pages/result_page.dart';
@@ -21,6 +22,9 @@ class HomePage extends StatelessWidget {
     BMIController bmiController = Get.put(BMIController());
 
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      extendBody: true,
+      backgroundColor: Theme.of(context).colorScheme.background,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
@@ -107,6 +111,7 @@ class HomePage extends StatelessWidget {
                 CalculateButton(
                   text: "Let's Go",
                   onTap: () {
+                    bmiController.calculateBMI();
                     Get.to(() => const ResultPage());
                   },
                 ),

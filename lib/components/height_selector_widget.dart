@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/controllers/app_themes_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:syncfusion_flutter_sliders/sliders.dart';
@@ -17,6 +18,8 @@ class HeightSelectorWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AppThemesController appThemesController = Get.find();
+
     return Container(
       height: 460,
       // width: 150,
@@ -33,7 +36,9 @@ class HeightSelectorWidget extends StatelessWidget {
               fontSize: 15,
               fontFamily: 'Poppins',
               fontWeight: FontWeight.w500,
-              color: Theme.of(context).colorScheme.onSecondaryContainer,
+              color: appThemesController.isDark.value
+                  ? Theme.of(context).colorScheme.onPrimaryContainer
+                  : Theme.of(context).colorScheme.onSecondaryContainer,
             ),
           ),
           const SizedBox(

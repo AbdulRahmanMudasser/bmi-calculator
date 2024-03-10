@@ -1,0 +1,7 @@
+class AppStrings {
+  static String underweight = "If your BMI is below 18.5, you might be underweight. This means you could benefit from gaining some weight to stay healthy. Eating more nutritious foods and talking to a doctor can help.";
+  static String normal = "If your BMI falls between 18.5 and 24.9, it's considered normal. This is good because it means you're at a healthy weight for your height. Keep eating balanced meals and staying active to stay in this range.";
+  static String obese = "When your BMI is 30 or higher, you're considered obese. This means you have too much body fat, which can lead to health problems like heart disease and diabetes. It's important to eat healthier foods and try to get more exercise to lower your BMI.";
+  static String overweight = "If your BMI falls between 25 and 29.9, you're considered overweight. This means you're heavier than you should be for your height. Try eating smaller portions and being more active to lower your BMI and reduce health risks.";
+  static String extremelyObese = "If your BMI is 40 or higher, you're extremely obese. This is very unhealthy and can lead to serious issues like difficulty breathing and joint pain. Seek help from a doctor or healthcare professional to create a plan for losing weight and improving your health.";
+}

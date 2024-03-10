@@ -1,5 +1,6 @@
 import 'package:bmi_calculator/components/calculate_button.dart';
 import 'package:bmi_calculator/controllers/app_themes_controller.dart';
+import 'package:bmi_calculator/controllers/bmi_controller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -11,6 +12,7 @@ class ResultPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     AppThemesController appThemesController = Get.find();
+    BMIController bmiController = Get.find();
 
     return Scaffold(
       body: SafeArea(
@@ -64,9 +66,9 @@ class ResultPage extends StatelessWidget {
                       animation: true,
                       animationDuration: 1200,
                       lineWidth: 35,
-                      percent: 0.4,
+                      percent: bmiController.bmi.value / 100,
                       center: Text(
-                        "40",
+                        bmiController.bmi.value.toString(),
                         style: TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 70,
@@ -100,7 +102,7 @@ class ResultPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "UNDERWEIGHT",
+                    bmiController.personStatusString.value,
                     style: TextStyle(
                       fontWeight: FontWeight.w600,
                       fontSize: 25,
@@ -122,9 +124,9 @@ class ResultPage extends StatelessWidget {
                   color: Theme.of(context).colorScheme.primaryContainer.withOpacity(0.9),
                   borderRadius: BorderRadius.circular(15),
                 ),
-                child: const Text(
-                  "Your BMI stands at 27.6, indicating a healthy balance between weight and height. Stay on track with your wellness journey as you navigate through our personalized recommendations and resources. Let your BMI of 27.6 be your guide towards a healthier, happier you!",
-                  style: TextStyle(
+                child: Text(
+                  bmiController.bmiDescription.value,
+                  style: const TextStyle(
                     fontSize: 13,
                     fontWeight: FontWeight.w500,
                     fontFamily: 'Poppins',

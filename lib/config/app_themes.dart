@@ -13,6 +13,7 @@ class AppThemes {
       onPrimaryContainer: AppColors.lightFontColor,
       onSecondaryContainer: AppColors.lightLabelColor,
     ),
+    scaffoldBackgroundColor: AppColors.lightBackgroundColor,
   );
 
   // dark theme
@@ -26,5 +27,6 @@ class AppThemes {
       onPrimaryContainer: AppColors.darkFontColor,
       onSecondaryContainer: AppColors.darkLabelColor,
     ),
+    scaffoldBackgroundColor: AppColors.darkBackgroundColor,
   );
 }

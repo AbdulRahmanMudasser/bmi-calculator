@@ -18,8 +18,6 @@ class GenderButton extends StatelessWidget {
   final GestureTapCallback onTap;
   final BMIController bmiController;
 
-  // final AppThemesController appThemesController;
-
   @override
   Widget build(BuildContext context) {
     AppThemesController appThemesController = Get.find();
@@ -41,16 +39,24 @@ class GenderButton extends StatelessWidget {
               Icon(
                 genderIcon,
                 color: bmiController.gender.value == genderText
-                    ? Theme.of(context).colorScheme.primaryContainer
-                    : Theme.of(context).colorScheme.primary,
+                    ? (appThemesController.isDark.value
+                        ? Theme.of(context).colorScheme.onPrimaryContainer
+                        : Theme.of(context).colorScheme.primaryContainer)
+                    : (appThemesController.isDark.value
+                        ? Theme.of(context).colorScheme.onPrimaryContainer
+                        : Theme.of(context).colorScheme.primary),
                 size: 20,
               ),
               Text(
                 genderText,
                 style: TextStyle(
                   color: bmiController.gender.value == genderText
-                      ? Theme.of(context).colorScheme.primaryContainer
-                      : Theme.of(context).colorScheme.primary,
+                      ? (appThemesController.isDark.value
+                          ? Theme.of(context).colorScheme.onPrimaryContainer
+                          : Theme.of(context).colorScheme.primaryContainer)
+                      : (appThemesController.isDark.value
+                          ? Theme.of(context).colorScheme.onPrimaryContainer
+                          : Theme.of(context).colorScheme.primary),
                   fontFamily: 'Poppins',
                   fontWeight: FontWeight.w500,
                   fontSize: 15,

@@ -1,4 +1,7 @@
+import 'package:bmi_calculator/config/app_colors.dart';
+import 'package:bmi_calculator/controllers/app_themes_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class IncrementDecrementButton extends StatelessWidget {
   const IncrementDecrementButton({
@@ -12,6 +15,8 @@ class IncrementDecrementButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AppThemesController appThemesController = Get.find();
+
     return GestureDetector(
       onTap: onTap,
       child: Container(
@@ -22,7 +27,7 @@ class IncrementDecrementButton extends StatelessWidget {
         ),
         child: Icon(
           icon,
-          color: Theme.of(context).colorScheme.primaryContainer,
+          color: AppColors.lightDivColor,
         ),
       ),
     );

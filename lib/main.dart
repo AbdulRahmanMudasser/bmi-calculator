@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/config/app_colors.dart';
 import 'package:bmi_calculator/config/app_themes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -16,9 +17,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     // trying to hide the status bar
     // and to use the space (after hiding status bar) as screen part
-    SystemChrome.setSystemUIOverlayStyle(
-      SystemUiOverlayStyle(statusBarColor: Theme.of(context).colorScheme.primary),
-    );
+    // SystemChrome.setSystemUIOverlayStyle(
+    //   SystemUiOverlayStyle(
+    //     statusBarColor: Theme.of(context).colorScheme.primaryContainer,
+    //   ),
+    // );
+
+    // SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
+    SystemChrome.setSystemUIOverlayStyle( SystemUiOverlayStyle.light);
 
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
