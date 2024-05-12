@@ -8,18 +8,10 @@ import '../controllers/bmi_controller.dart';
 class HeightSelectorWidget extends StatelessWidget {
   const HeightSelectorWidget({
     super.key,
-    required this.bmiController,
-    // required this.height,
   });
-
-  final BMIController bmiController;
-
-  // final double height;
 
   @override
   Widget build(BuildContext context) {
-    AppThemesController appThemesController = Get.find();
-
     return Container(
       height: 460,
       // width: 150,
@@ -36,7 +28,7 @@ class HeightSelectorWidget extends StatelessWidget {
               fontSize: 15,
               fontFamily: 'Poppins',
               fontWeight: FontWeight.w500,
-              color: appThemesController.isDark.value
+              color: Get.find<AppThemesController>().isDark.value
                   ? Theme.of(context).colorScheme.onPrimaryContainer
                   : Theme.of(context).colorScheme.onSecondaryContainer,
             ),
@@ -49,7 +41,7 @@ class HeightSelectorWidget extends StatelessWidget {
               () => SfSlider.vertical(
                 min: 100,
                 max: 250,
-                value: bmiController.height.value,
+                value: Get.find<BMIController>().height.value,
                 interval: 25,
                 showTicks: true,
                 showLabels: true,
@@ -57,7 +49,7 @@ class HeightSelectorWidget extends StatelessWidget {
                 activeColor: Theme.of(context).colorScheme.primary,
                 inactiveColor: Theme.of(context).colorScheme.primary.withOpacity(0.2),
                 onChanged: (value) {
-                  bmiController.height.value = value;
+                  Get.find<BMIController>().height.value = value;
 
                   // debugPrint(value.toString());
                 },

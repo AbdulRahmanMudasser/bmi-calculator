@@ -1,13 +1,12 @@
 import 'package:bmi_calculator/controllers/app_themes_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class ChangeTheme extends StatelessWidget {
+class ChangeTheme extends GetView<AppThemesController> {
   const ChangeTheme({
     super.key,
-    required this.appThemesController,
   });
 
-  final AppThemesController appThemesController;
 
   @override
   Widget build(BuildContext context) {
@@ -29,10 +28,10 @@ class ChangeTheme extends StatelessWidget {
               //   width: 10,
               // ),
               IconButton(
-                onPressed: () => appThemesController.changeTheme(),
+                onPressed: () => controller.changeTheme(),
                 icon: Icon(
                   Icons.light_mode,
-                  color: appThemesController.isDark.value
+                  color: controller.isDark.value
                       ? Theme.of(context).colorScheme.onPrimaryContainer
                       : Theme.of(context).colorScheme.primary,
                 ),
@@ -41,10 +40,10 @@ class ChangeTheme extends StatelessWidget {
                 width: 15,
               ),
               IconButton(
-                onPressed: () => appThemesController.changeTheme(),
+                onPressed: () => controller.changeTheme(),
                 icon: Icon(
                   Icons.dark_mode,
-                  color: appThemesController.isDark.value
+                  color: controller.isDark.value
                       ? Theme.of(context).colorScheme.primary
                       : Theme.of(context).colorScheme.onPrimaryContainer,
                 ),

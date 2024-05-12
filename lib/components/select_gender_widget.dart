@@ -1,17 +1,13 @@
 import 'package:bmi_calculator/controllers/bmi_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'gender_button.dart';
 
 class SelectGenderWidget extends StatelessWidget {
   const SelectGenderWidget({
     super.key,
-    required this.bmiController,
-    // required this.appThemesController,
   });
-
-  final BMIController bmiController;
-  // final AppThemesController appThemesController;
 
   @override
   Widget build(BuildContext context) {
@@ -21,8 +17,7 @@ class SelectGenderWidget extends StatelessWidget {
           child: GenderButton(
             genderIcon: Icons.male,
             genderText: "Male",
-            onTap: () => bmiController.changeGender("Male"),
-            bmiController: bmiController,
+            onTap: () => Get.find<BMIController>().changeGender("Male"),
             // appThemesController: appThemesController,
           ),
         ),
@@ -33,8 +28,7 @@ class SelectGenderWidget extends StatelessWidget {
           child: GenderButton(
             genderIcon: Icons.female,
             genderText: "Female",
-            onTap: () => bmiController.changeGender("Female"),
-            bmiController: bmiController,
+            onTap: () => Get.find<BMIController>().changeGender("Female"),
             // appThemesController: appThemesController,
           ),
         ),

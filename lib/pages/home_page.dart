@@ -1,6 +1,4 @@
 import 'package:bmi_calculator/components/top_text_widget.dart';
-import 'package:bmi_calculator/config/app_colors.dart';
-import 'package:bmi_calculator/controllers/app_themes_controller.dart';
 import 'package:bmi_calculator/controllers/bmi_controller.dart';
 import 'package:bmi_calculator/pages/result_page.dart';
 import 'package:flutter/material.dart';
@@ -12,15 +10,11 @@ import '../components/height_selector_widget.dart';
 import '../components/medium_selector_container.dart';
 import '../components/select_gender_widget.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends GetView<BMIController> {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // since our controller is in another file, we will use the concept of dependency injection
-    AppThemesController appThemesController = Get.put(AppThemesController());
-    BMIController bmiController = Get.put(BMIController());
-
     return Scaffold(
       extendBodyBehindAppBar: true,
       extendBody: true,
@@ -32,45 +26,23 @@ class HomePage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // to change theme
-                // ElevatedButton(
-                //   onPressed: () {
-                //     appThemesController.changeTheme();
-                //   },
-                //   child: const Text("Change Theme"),
-                // ),
-            
                 // change theme widget
-                ChangeTheme(
-                  appThemesController: appThemesController,
-                ),
-            
-                const SizedBox(
-                  height: 25,
-                ),
-            
+                ChangeTheme(),
+
+                const SizedBox(height: 25),
+
                 const TopTextWidget(),
-            
-                const SizedBox(
-                  height: 30,
-                ),
-            
-                SelectGenderWidget(
-                  bmiController: bmiController,
-                  // appThemesController: appThemesController,
-                ),
-            
-                const SizedBox(
-                  height: 30,
-                ),
-            
+
+                const SizedBox(height: 30),
+
+                SelectGenderWidget(),
+
+                const SizedBox(height: 30),
+
                 Row(
                   children: [
                     Expanded(
-                      child: HeightSelectorWidget(
-                        bmiController: bmiController,
-                        // height: bmiController.height.value,
-                      ),
+                      child: HeightSelectorWidget(),
                     ),
                     const SizedBox(
                       width: 15,
@@ -82,20 +54,18 @@ class HomePage extends StatelessWidget {
                           children: [
                             MediumSelectorContainer(
                               forWhat: "Weight (kg)",
-                              value: bmiController.weight.value,
-                              bmiController: bmiController,
-                              incrementMethod: () => bmiController.incrementWeight(),
-                              decrementMethod: () => bmiController.decrementWeight(),
+                              value: controller.weight.value,
+                              incrementMethod: () => controller.incrementWeight(),
+                              decrementMethod: () => controller.decrementWeight(),
                             ),
                             const SizedBox(
                               height: 20,
                             ),
                             MediumSelectorContainer(
                               forWhat: "Age",
-                              value: bmiController.age.value,
-                              bmiController: bmiController,
-                              incrementMethod: () => bmiController.incrementAge(),
-                              decrementMethod: () => bmiController.decrementAge(),
+                              value: controller.age.value,
+                              incrementMethod: () => controller.incrementAge(),
+                              decrementMethod: () => controller.decrementAge(),
                             ),
                           ],
                         ),
@@ -103,15 +73,13 @@ class HomePage extends StatelessWidget {
                     ),
                   ],
                 ),
-            
-                const SizedBox(
-                  height: 40,
-                ),
-            
+
+                const SizedBox(height: 40),
+
                 CalculateButton(
                   text: "Let's Go",
                   onTap: () {
-                    bmiController.calculateBMI();
+                    controller.calculateBMI();
                     Get.to(() => const ResultPage());
                   },
                 ),

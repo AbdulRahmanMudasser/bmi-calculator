@@ -1,5 +1,4 @@
 import 'package:bmi_calculator/controllers/app_themes_controller.dart';
-import 'package:bmi_calculator/controllers/bmi_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -10,21 +9,17 @@ class MediumSelectorContainer extends StatelessWidget {
     super.key,
     required this.forWhat,
     required this.value,
-    required this.bmiController,
     required this.incrementMethod,
     required this.decrementMethod,
   });
 
   final String forWhat;
   final int value;
-  final BMIController bmiController;
   final GestureTapCallback incrementMethod;
   final GestureTapCallback decrementMethod;
 
   @override
   Widget build(BuildContext context) {
-    AppThemesController appThemesController = Get.find();
-
     return Container(
       height: 220,
       padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
@@ -40,7 +35,7 @@ class MediumSelectorContainer extends StatelessWidget {
               fontSize: 15,
               fontFamily: 'Poppins',
               fontWeight: FontWeight.w500,
-              color: appThemesController.isDark.value
+              color: Get.find<AppThemesController>().isDark.value
                   ? Theme.of(context).colorScheme.onPrimaryContainer
                   : Theme.of(context).colorScheme.onSecondaryContainer,
             ),

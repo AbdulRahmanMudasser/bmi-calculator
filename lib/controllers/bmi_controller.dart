@@ -1,4 +1,7 @@
+import 'package:bmi_calculator/config/app_colors.dart';
 import 'package:bmi_calculator/config/app_strings.dart';
+import 'package:bmi_calculator/controllers/app_themes_controller.dart';
+import 'package:bmi_calculator/utils/methods/snack_bar_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -88,6 +91,24 @@ class BMIController extends GetxController {
     } else if (bmi.value >= 35.0) {
       personStatusString.value = "EXTREMELY OBESE";
       bmiDescription.value = AppStrings.extremelyObese;
+    }
+  }
+
+  /// Navigate to Website
+  void openUrl() {
+    final Uri uri = Uri.parse("https://www.calculator.net/bmi-calculator.html");
+    try {} catch (exception) {
+      debugPrint(exception.toString());
+      SnackBarUtils.showErrorSnackBar(
+        "Error",
+        exception.toString(),
+        backgroundColor: Get.find<AppThemesController>().isDark.value
+            ? AppColors.lightBackgroundColor
+            : AppColors.darkBackgroundColor,
+        foregroundColor: Get.find<AppThemesController>().isDark.value
+            ? AppColors.lightFontColor
+            : AppColors.darkFontColor,
+      );
     }
   }
 }

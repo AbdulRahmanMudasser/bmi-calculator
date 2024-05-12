@@ -9,26 +9,21 @@ class GenderButton extends StatelessWidget {
     required this.genderIcon,
     required this.genderText,
     required this.onTap,
-    required this.bmiController,
-    // required this.appThemesController,
   });
 
   final IconData genderIcon;
   final String genderText;
   final GestureTapCallback onTap;
-  final BMIController bmiController;
 
   @override
   Widget build(BuildContext context) {
-    AppThemesController appThemesController = Get.find();
-
     return GestureDetector(
       onTap: onTap,
       child: Obx(
         () => Container(
           padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 15),
           decoration: BoxDecoration(
-            color: bmiController.gender.value == genderText
+            color: Get.find<BMIController>().gender.value == genderText
                 ? Theme.of(context).colorScheme.primary
                 : Theme.of(context).colorScheme.primaryContainer,
             borderRadius: BorderRadius.circular(15),
@@ -38,11 +33,11 @@ class GenderButton extends StatelessWidget {
             children: [
               Icon(
                 genderIcon,
-                color: bmiController.gender.value == genderText
-                    ? (appThemesController.isDark.value
+                color: Get.find<BMIController>().gender.value == genderText
+                    ? (Get.find<AppThemesController>().isDark.value
                         ? Theme.of(context).colorScheme.onPrimaryContainer
                         : Theme.of(context).colorScheme.primaryContainer)
-                    : (appThemesController.isDark.value
+                    : (Get.find<AppThemesController>().isDark.value
                         ? Theme.of(context).colorScheme.onPrimaryContainer
                         : Theme.of(context).colorScheme.primary),
                 size: 20,
@@ -50,11 +45,11 @@ class GenderButton extends StatelessWidget {
               Text(
                 genderText,
                 style: TextStyle(
-                  color: bmiController.gender.value == genderText
-                      ? (appThemesController.isDark.value
+                  color: Get.find<BMIController>().gender.value == genderText
+                      ? (Get.find<AppThemesController>().isDark.value
                           ? Theme.of(context).colorScheme.onPrimaryContainer
                           : Theme.of(context).colorScheme.primaryContainer)
-                      : (appThemesController.isDark.value
+                      : (Get.find<AppThemesController>().isDark.value
                           ? Theme.of(context).colorScheme.onPrimaryContainer
                           : Theme.of(context).colorScheme.primary),
                   fontFamily: 'Poppins',
